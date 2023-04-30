@@ -48,22 +48,38 @@ radio2.pack()
 
 
 ### EXERCISE
+'''
+EXERCISE:
+    create another checkbutton and 2 radiobuttons
+    radio button:
+        values for the buttons are A and B
+        ticking either prints the value of the checkbutton
+        ticking the radio button unchecks the checkbutton
+    check button:
+        ticking the checkbutton prints the value of the radio button value
+        use tkinter var for booleans
+'''
 tk.Label(window,text='\nEXERCISE\n').pack()
 
-exercise_check = tk.Checkbutton(window,text='CheckButton',
-                                onvalue = 'A',
-                                offvalue = 0,
-                                command=lambda:print(radio_value.get())).pack()
-radio_value = tk.StringVar()
-radio3 = ttk.Radiobutton(window,text='A', value='A',
-                         variable = radio_value,
-                         command = lambda: print(radio_value.get())).pack()
-radio4 = ttk.Radiobutton(window,text='B', value='B',
-                         variable = radio_value,
-                         command = lambda: print(radio_value.get())).pack()
+def radio_func():
+    print(check_bool.get())
+    check_bool.set(False)
 
+radio_string = tk.StringVar()
+check_bool = tk.BooleanVar()
 
+exercise_radio1 = ttk.Radiobutton(window,text='Radio A',
+                                  value='A', variable=radio_string,
+                                  command=radio_func)
+exercise_radio2 = ttk.Radiobutton(window,
+                                  text='Radio B',value='B',
+                                  variable=radio_string, command=radio_func)
+exercise_check = ttk.Checkbutton(window, text='exercise_check',variable=check_bool,
+                                 command = lambda: print(radio_string.get()))
 
+exercise_radio1.pack()
+exercise_radio2.pack()
+exercise_check.pack()
 
 # Loop
 window.mainloop()
