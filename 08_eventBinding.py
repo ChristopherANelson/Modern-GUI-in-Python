@@ -22,7 +22,7 @@ window.bind('<Alt-KeyPress-a>', lambda event: print(event))
 window.bind('<Motion>', get_pos)
 window.bind('<KeyPress>', lambda event: print(f'A button was pressed. ({event.char})'))
 
-entry.bind('<FocusIn>', lambda event: print('entry field was selected'))
+#entry.bind('<FocusIn>', lambda event: print('entry field was selected'))
 
 
 
