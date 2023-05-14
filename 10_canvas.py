@@ -44,15 +44,27 @@ color_picker = ttk.Combobox(window, textvariable=color_string)
 color_picker['values']=colors
 color_picker.pack()
 
-def brush_size_adjust(event):
-    global brush_size
+
 
 def draw_func(event):
     print(f'x: {event.x} y: {event.y}')
-    canvas.create_oval(event.x,event.y,event.x+5,event.y+5,
+    x = event.x
+    y = event.y
+    canvas.create_oval(x - brush_size/2,y - brush_size / 2,
+                       x + brush_size/2,y + brush_size / 2,
                        fill=color_string.get(),outline=color_string.get())
 
+def brush_size_adjust(event):
+    global brush_size
+    if event.delta>0:
+        brush_size += 4
+    else:
+        brush_size -= 4
+
+
+brush_size = 6
 canvas.bind('<B1-Motion>', draw_func)
+canvas.bind('<MouseWheel>', brush_size_adjust)
 
 
 ''' Loop '''
