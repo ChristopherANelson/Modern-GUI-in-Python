@@ -32,7 +32,7 @@ label2 = ttk.Label(window, text='Label 2', background='blue')
 
 # Place #
 label1.place(x=100,y=300, width=200, height=100)
-label2.place(relx=0.5, rely=0.5, relwidth=1)
+label2.place(relx=0.5, rely=0.5, relwidth=1, anchor='se')
 
 ### Loop ###
 window.mainloop()
